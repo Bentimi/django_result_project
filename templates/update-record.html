@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<body>
+    <section>
+        <div class="bg-light p-3 form-layout mx-auto my-3">
+            <h3>Update Profile</h3>
+            <h6 class="text-muted">Update your profile below.</h6>
+            
+            <hr>
+            <br>
+
+
+            <form action="" method="POST" autocomplete="off" class="p-5">
+                {% csrf_token %}        
+            
+                {{form|crispy}}
+                <br>
+                
+                <div>
+                <a href="{% url 'dashboard' %}" class="btn btn-lg btn-secondary rounded-0"><ion-icon name="arrow-back"></ion-icon>&nbsp;Back</a>
+
+                    <button type="submit" class="btn  btn-lg btn-danger btn-block border border-0 rounded-0 my-0 mx-auto">Update</button>
+                </div>
+            </form>
+    
+            </div>
+    </section>
+</body>
+
+{% endblock %}

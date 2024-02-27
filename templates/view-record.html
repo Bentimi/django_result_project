@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <section class="mx-auto my-5 p-3 shadow-lg" style="width: fit-content;">
+        <div class="card p-2">
+
+            <strong class="text-center fs-3 p-2">
+                {{record.last_name|upper}}
+
+                {{record.first_name}}
+
+                {% comment %} {{record.matric_number}} {% endcomment %}
+
+            </strong>        
+            <div class="card-body">
+                <p><strong> First Name: </strong> {{record.first_name}} </p>
+                <p><strong> Last Name: </strong> {{record.last_name}} </p>
+                
+                <p><strong> Matric Number: </strong> {{record.matric_number}} </p>
+                <p><strong> Score: </strong> {{record.score}} </p>
+                <p><strong> Status: </strong> <em>{{record.status|upper}}</em> </p>
+            </div>
+        </div>
+        <br>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary rounded-0"><ion-icon name="arrow-back"></ion-icon>&nbsp;Back</a>
+        
+        <a href="{% url 'update-record' record.id %}" class="btn btn-primary rounded-0">Update
+            <img class="img-fluid containder-fluid" src="{% static 'pencil-lower-left.svg' %}" alt="" style="height: 15px; width:15px;">
+        </a>
+        <a href="{% url 'delete-record' record.id %}" class="btn btn-danger rounded-0 text-center">Delete
+        <ion-icon name="trash"></ion-icon></a>
+    </section>
+</body>
+
+{% endblock %}

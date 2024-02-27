@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="class card mx-auto my-5 p-3 border-1 border- rounded-2 shadow-lg bg-white" style="max-width: 30rem;">
+    <!-- <div class="border border-1 border-dark p-3"> -->
+    {% if records %}
+
+    <span class="fs-2 fw-bold text-center">
+        {{records.last_name|upper}} {{records.first_name}}
+        <hr>
+    </Span>
+    <!-- <span class="block">
+                <strong>ID: 
+                </strong>
+                {{records.id}}
+            </span> -->
+    <p>
+    <p>
+        <strong>Name: </strong>
+        {{records.last_name}} {{records.first_name}}
+    </p>
+    <p>
+        <strong>Matric Number: </strong>
+        {{records.matric_number}}
+    </p>
+    <p>
+        <strong>Course: </strong>
+        {{records.course}}
+    </p>
+    <p>
+        <strong>Status:
+
+            {{status|upper}}
+        </strong>
+    <div class="progress">
+
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{color}} overflow-visible"
+            role="progressbar" style="width: {{percentage}}%;" aria-valuenow="90" aria-valuemin="Status"
+            aria-valuemax="100">
+            <p class=" text text-center text-dark my-auto ps-5 fw-bold">{{status|upper}}
+                <!-- {{percentage}} -->
+            </p>
+        </div>
+    </div>
+
+    </p>
+
+    {% endif %}
+
+    <a href="{% url 'portal' %}"
+        class="btn btn-secondary btn-outline-dark text-light border-0 rounded-0 text-center mx-auto">
+        <ion-icon name="arrow-back"></ion-icon> Back</a>
+    <!-- </div> -->
+</div>
+
+
+
+
+{% endblock %}

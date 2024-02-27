@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %} Form Validation {% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link href="{% static 'jabu.png' %}" type="image/png" rel="icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="user-select-none">
+  {% comment %} <button class="btn btn-dark btn-outline-success border border-0 rounded-0" type="button"
+    data-bs-toggle="offcanvas" data-bs-target="#Id1" aria-controls="Id1">
+    &#9776;
+  </button>
+
+  <div class="offcanvas offcanvas-start bg-success" data-bs-scroll="true" tabindex="-1" id="Id1"
+    aria-labelledby="Enable both scrolling & backdrop">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="Enable both scrolling & backdrop">
+        <a class="navbar-brand text text-center text-white mx-auto fs-2" href="#">JABU CODEBLOCK</a>
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        {% if user.is_authenticated and user.is_superuser %}
+        <li class="nav-item">
+          <a class="nav-link text text-white fs-4 ms-2" href="{% url 'dashboard' %}">Dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text text-white fs-4 ms-2" href="{% url 'user-logout' %}">SignOut</a>
+        </li>
+        {% elif user.is_authenticated and user.is_active %}
+        <li class="nav-item">
+          <a class="nav-link text text-white fs-4 ms-2" href="">Refresh</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text text-white fs-4 ms-2" href="{% url 'user-logout' %}">SignOut</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link active text text-white fs-4 ms-2" aria-current="page"
+            href="{% url 'register' %}">Register</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text text-white fs-4 ms-2" href="{% url 'my_login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+
+    </div>
+  </div> {% endcomment %}
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand text text-center text-white mx-auto fs-2" href="#">JABU CODEBLOCK</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-0 mb-2 mb-lg-0">
+
+          {% if user.is_authenticated and user.is_superuser %}
+          <li class="nav-item">
+            <a class="nav-link text text-center text-white fs-4 ms-2" href="{% url 'dashboard' %}">Dashboard</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text text-center text-white fs-4 ms-2" href="{% url 'user-logout' %}">SignOut</a>
+          </li>
+          {% elif user.is_authenticated and user.is_active %}
+          <li class="nav-item">
+            <a class="nav-link text text-center text-white fs-4 ms-2" href="">Refresh</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text text-center text-white fs-4 ms-2" href="{% url 'user-logout' %}">SignOut</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active text text-center text-white fs-4 ms-2" aria-current="page"
+              href="{% url 'register' %}">Register</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text text-center text-white fs-4 ms-2" href="{% url 'my_login' %}">Login</a>
+          </li>
+          {% endif %}
+          </form>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+
+  <div class="">
+
+    <div>
+    </div>
+
+    <div>
+    </div>
+
+  </div>
+
+
+  {% block content %}
+  <div>
+
+  </div>
+
+  {% endblock %}
+
+
+
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

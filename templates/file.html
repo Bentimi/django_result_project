@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block title %} Import and Export {% endblock %}
+{% block content %}
+
+<div class="card w-50 my-5 mx-auto shadow-lg border border-1 rounded-0 p-2 justify-content-center container-fluid" style="height: 70vh;">
+    <form method="POST" enctype="multipart/form-data" class="p-3">
+        {% csrf_token %}
+
+
+        <div
+            class="alert alert-{{bg}} alert-dismissible fade show"
+            role="alert"
+        >
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+            ></button>
+            <strong>{{message}}</strong>
+        </div>
+        
+        <!-- Some borders are removed -->
+        <ol  class="list-group list-group-flush hover">
+            <strong>File must contain the following content/format accordingly:</strong>
+            <li class="list-group-item">id</li>
+            <li class="list-group-item">first_name</li>
+            <li class="list-group-item">last_name</li>
+            <li class="list-group-item">matric_number</li>
+            <li class="list-group-item">course</li>
+            <li class="list-group-item">score</li>
+            <li class="list-group-item">status</li><br>
+        </ol>
+        
+        
+        
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-lg rounded-0">
+            <ion-icon name="arrow-back"></ion-icon>&nbsp; Back
+        </a>
+        <label for="inp-file" class="btn btn-lg btn-warning shadow-sm rounded-0 text-center">Choose File</label>
+        <input
+        name="upload"
+        id="inp-file"
+        class="btn "
+        type="file"
+        value="Button"
+        style="display: none;"
+        accept="file/xls, file/xlsx"
+        class="form-control"
+        />  
+        <!-- <br> -->
+        <button type="submit" class="btn btn-lg btn-danger text-center text-light border-0 rounded-0 shadow-sm">Upload</button>
+        </form>
+</div>
+
+<script>
+    var alertList = document.querySelectorAll(".alert");
+    alertList.forEach(function (alert) {
+        new bootstrap.Alert(alert);
+    });
+</script>
+
+{% endblock %}

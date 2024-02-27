@@ -1,0 +1,181 @@
+{% extends 'index.html' %}
+{% block title %} Import and Export {% endblock %}
+{% block content %}
+
+<div class="mb-3">
+    <input
+    type="file"
+    class="form-control w-25"
+    name="Upload"
+    id="inp-file"
+    aria-describedby="helpId"
+    placeholder=""
+    label="Upload"
+    />
+
+    <label for="inp-file" class="btn btn-danger border rounded-0" style="display: block; cursor: pointer; width: 5em">Choose</label>
+</div>
+<label for="inp-file" class="btn btn-danger border rounded-0" style="display: block; cursor: pointer; width: 5em">Upload</label>
+    <input type="file" accept="image/png, image/jpeg, image/jpg" id="inp-file" style="display: none;">
+    
+    <button
+        class="btn btn-success"
+        type="button"
+        disabled
+    >
+        <span
+            class="spinner-border spinner-border-lg"
+            role="status"
+            aria-hidden="true"
+        ></span>
+        Loading...
+    </button>
+
+    <!-- Button trigger modal -->
+    <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        data-bs-toggle="modal"
+        data-bs-target="#modalId"
+    >
+        Launch
+    </button>
+    
+    <!-- Modal trigger button -->
+    <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        data-bs-toggle="modal"
+        data-bs-target="#modalId"
+    >
+        check
+    </button>
+    
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div
+        class="modal fade"
+        id="modalId"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        
+        role="dialog"
+        aria-labelledby="modalTitleId"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+            role="document"
+        >
+            <div class="modal-content w-25 border border-0 rounded-circle">
+                <button
+                    class="btn btn-dark"
+                    type="button"
+                    disabled
+                >
+                    <span
+                        class="spinner-border spinner-border-lg"
+                        role="status"
+                        aria-hidden="true"
+                    ></span>
+                    Loading...
+                </button>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+        const myModal = new bootstrap.Modal(
+            document.getElementById("modalId"),
+            options,
+        );
+    </script>
+    
+
+    <!-- Modal -->
+    <div
+        class="modal fade"
+        id="modalId"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modalTitleId"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog w-25" role="document" >
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">
+                       <button
+                        class="btn border border-0"
+                        type="button"
+                        disabled
+                       >
+                        <span
+                            class="spinner-border spinner-border-lg"
+                            role="status"
+                            aria-hidden="true"
+                        ></span>
+                        Loading...
+                       </button>
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var modalId = document.getElementById('modalId');
+    
+        modalId.addEventListener('show.bs.modal', function (event) {
+              // Button that triggered the modal
+              let button = event.relatedTarget;
+              // Extract info from data-bs-* attributes
+              let recipient = button.getAttribute('data-bs-whatever');
+    
+            // Use above variables to manipulate the DOM
+        });
+    </script>
+
+    <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-toggle="popover"
+        title="Popup title"
+        data-bs-content="Popup content"
+    >
+        Trigger
+    </button>
+    
+    <div class="btn-group">
+        <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="triggerId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+        >
+            This dropdown's menu is start/end-aligned
+        </button>
+        <div
+            class="dropdown-menu dropdown-menu-start"
+            aria-labelledby="triggerId"
+        >
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item disabled" href="#">Disabled action</a>
+            <h6 class="dropdown-header">Section header</h6>
+            <a class="dropdown-item" href="#">Action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">After divider action</a>
+        </div>
+    </div>
+    
+
+    
+    
+
+{% endblock %}

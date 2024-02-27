@@ -1,0 +1,17 @@
+.form-layout{
+    border-radius: 15px;
+    max-width: 500px;
+}
+
+#nav{
+grid-template-columns: 1fr 2fr;
+grid-template-columns: repeat(2);
+display: grid;
+background-color: black;
+}   
+
+body{
+    background-color: pink;
+}
+
+

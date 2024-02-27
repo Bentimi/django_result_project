@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% load static %}
+
+<!-- <body> -->
+    {% if user.is_authenticated and user.is_superuser %}
+    <section class="p-2">
+        <h5>Welcome to the dashboard page, {{user|upper}}:</h5>
+        <hr>
+        
+        <form action="{% url "dashboard" %}" method="get" >
+            {% csrf_token %}
+        
+            <div class="mb-3 form-layout d-flex my-0 mx-0 gap-2" role="search">
+
+        <p class="fs-5">Filter:</p>
+                
+                <input
+                type="search"
+                class="form-control w-50"
+                name="filter"
+                id=""
+                aria-label="search"
+                placeholder="Search by First Name, Last Name, ..."
+                />
+                <button
+                type="submit"
+                class="btn btn-outline-success  border border-secondary border-opacity-25 rounded-0"
+                >
+                <ion-icon name="search"></ion-icon>
+            </button>
+
+            <input
+                name="all"
+                id=""
+                class="btn btn-outline-success border border-secondary border-opacity-25  border-1 rounded-0"
+                type="submit"
+                value="All"
+            />
+        </div>
+    </form>
+    <hr>
+    
+    <a href="{% url 'create-record' %}" class="btn btn-outline-success btn-lg border border-success rounded-0">
+        Add Record
+        <ion-icon name="add"></ion-icon>
+    </a>
+
+    <a href="{% url 'file' %}" class="btn btn-outline-success btn-lg border border-success rounded-0">
+        Import Records
+    </a>
+        <hr>
+
+        <!-- <a href="" class="text-">Edit</a> -->
+    <a href="#" class="btn btn-outline-success  btn-success text-light rounded-0" style="position: fixed; bottom:0;">Up</a>
+
+        <table class="table table-light  table-bordered table-hover table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+            
+                    <th scope="col"></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Matric Number</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Date Created</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if records %}
+                    {% for record in records %}
+                <tr>
+                <td>
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="checkbox" value="delete" name="check" class="form-check-input">
+                    </form>
+
+                </td>
+                    <td> {{record.id}}</td>
+                    <td> {{record.first_name}} {{record.last_name}} </td>
+                    <td> {{record.matric_number}} </td>
+                    <td> {{record.course}} </td>
+                    <td> {{record.status}} </td>
+                    <td> {{record.score}} </td>
+                    <td> {{record.creation_date}} </td>
+
+                    <td>  <a href="{% url 'record' record.id %}" class="">
+                        <img class="img-fluid containder-fluid" src="{% static 'pencil-lower-left.svg' %}" alt="" style="height: 20px; width:20px;">
+                    </a> </td>
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
+    {% endif %}
+    
+<!-- </body> -->
+
+{% endblock %}

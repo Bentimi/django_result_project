@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<body>
+    <section>
+        <div class="bg-light p-3 form-layout my-0 mx-auto my-3">
+            <h3>Create Account</h3>
+            <h6 class="text-muted">Start adding in the reqired details.</h6>
+            
+            <hr>
+            <br>
+
+
+            <form action="" method="POST" autocomplete="off" class="p-5">
+                {% csrf_token %}        
+            
+                {{form|crispy}}
+                <br>
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-lg rounded-0"><ion-icon name="arrow-back"></ion-icon>&nbsp;Back</a>
+
+                <button type="submit" class="btn btn-lg btn-primary btn-block border border-0 rounded-0 my-0 mx-auto fs-5">
+                Create Record</button>
+            </form>
+    
+    
+            <hr>
+            <br>
+            <!-- <div class="text-center">
+                <p class="fs-5">Don't have an account?
+                    <a class="text-decoration-none" href="{% url 'register' %}">Register</a>
+                </p> 
+                    
+            </div> -->
+    </section>
+</body>
+
+{% endblock %}
