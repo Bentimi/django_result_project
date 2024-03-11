@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e*(8b^-9*5pw5=#)z-+mh_j=)n&8=!e^0_phqrv6a-kc-%4w)@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sql210.infinityfree.com']
 
 
 # Application definition
@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'csc.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": 'csc2_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        "NAME": 'if0_36142805_custom_d',
+        'USER': 'if0_36142805',
+        'PASSWORD': 'v8AiC0PtBub',
+        'HOST': 'sql210.infinityfree.com',
         'PORT': '3306',
     
     }
